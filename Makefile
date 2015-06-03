@@ -6,7 +6,7 @@
 #    By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/05/29 17:57:44 by rdestreb          #+#    #+#              #
-#    Updated: 2015/05/29 18:23:43 by rdestreb         ###   ########.fr        #
+#    Updated: 2015/06/03 17:09:19 by rdestreb         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -19,12 +19,17 @@ RM			= /bin/rm -f
 ECHO		= /bin/echo
 SRCDIR		= ./
 SRC 		= $(addprefix $(SRCDIR), $(SRCFILES))
-SRCFILES	= hello.s \
+SRCFILES	=	ft_isalpha.s \
+				ft_isdigit.s \
+				ft_isalnum.s \
+				ft_isascii.s \
+				ft_isprint.s \
+				ft_tolower.s \
+				ft_toupper.s \
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ld $(OBJ) -macosx_version_min 10.10 -lSystem
 	ar -rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 	@$(ECHO) '> Compiled'

@@ -1,34 +1,33 @@
 %define MACSYSCALL(nb) 0x2000000 | nb
 %define STDOUT 1
 
-section .text
-	global start
-	global _isalpha
 
-start:
-	call _isalpha
+	global _ft_isalpha
+
+section .text
+	call _ft_isalpha
 	ret
 
-_isalpha:
+_ft_isalpha:
 	push rbp
 	mov rbp, rsp
-/* code */
-/*	mov rdi, c
-
-	comparer entree c avec 'Z' 'z' 'a' 'A'
-	jumps -> rax 1 si OK, rax 0 sinon ?
-
-verif1:
-	cmp rdi,'A'
-	JAE verif2
-
-verif2:
+	sub rsp, 10
+	cmp rdi, 'A'
+	jl nope
+	cmp rdi, 'z'
+	jg nope
 	cmp rdi, 'Z'
-	JBE ok
-ok:D
+	jle ok
+	cmp rdi, 'a'
+	jge ok
+	jmp nope
+
+ok:
 	mov rax, 1
-	*/
-	mov rax, MACSYSCALL(0)
-	syscall
+	leave
+	ret
+
+nope:
+	mov rax, 0
 	leave
 	ret
