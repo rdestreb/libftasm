@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/03 12:28:34 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/06/04 13:23:32 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/06/04 15:10:00 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,8 @@ int 	ft_tolower(int c);
 int 	ft_toupper(int c);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
+char    *ft_strcat(char *dest, const char *src);
+size_t	ft_strlen(char const *s);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 #endif
