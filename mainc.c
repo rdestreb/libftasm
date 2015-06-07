@@ -64,7 +64,21 @@ int	test_strcat()
 
 int	test_isalpha()
 {
-  
+  printf("__TEST ISALPHA__\n");
+  printf("%s %d\n", "Libc  : ", isalpha('a'));
+  printf("%s %d\n\n", "Libft : ", ft_isalpha('a'));
+  printf("%s %d\n", "Libc  : ", isalpha('A'));
+  printf("%s %d\n\n", "Libft : ", ft_isalpha('A'));
+  printf("%s %d\n", "Libc  : ", isalpha(66));
+  printf("%s %d\n\n", "Libft : ", ft_isalpha(66));
+  printf("%s %d\n", "Libc  : ", isalpha('z'));
+  printf("%s %d\n\n", "Libft : ", ft_isalpha('z'));
+  printf("%s %d\n", "Libc  : ", isalpha('Z'));
+  printf("%s %d\n\n", "Libft : ", ft_isalpha('Z'));
+  printf("%s %d\n", "Libc  : ", isalpha('5'));
+  printf("%s %d\n\n", "Libft : ", ft_isalpha('5'));
+  printf("%s %d\n", "Libc  : ", isalpha('}'));
+  printf("%s %d\n\n", "Libft : ", ft_isalpha('}'));
   return (0);
 }
   
@@ -115,6 +129,10 @@ int	test_memset()
 
 int	test_puts()
 {
+  char test[20]="coucou";
+
+  puts(test);
+  ft_puts(test);
   return (0);
 }
 
