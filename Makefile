@@ -6,7 +6,7 @@
 #    By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/05/29 17:57:44 by rdestreb          #+#    #+#              #
-#    Updated: 2015/06/05 16:11:20 by rdestreb         ###   ########.fr        #
+#    Updated: 2015/06/08 16:42:45 by rdestreb         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -31,7 +31,9 @@ SRCFILES	=	ft_isalpha.s \
 				ft_strlen.s \
 				ft_memcpy.s \
 				ft_strcat.s \
-
+				ft_puts.s \
+				ft_cat.s \
+				ft_strdup.s
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -43,7 +45,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) macho64 -o $@ $<
 
 test : $(OBJ)
-	clang -Wall -Wextra -Werror -L. -lfts  cyril_main.c -o test
+	clang -Wall -Wextra -Werror -g -L. -lfts  main_strdup.c -o test
 
 clean:
 	-@$(RM) $(OBJ)
