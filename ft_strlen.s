@@ -1,27 +1,16 @@
 	global _ft_strlen
 
-section .data
-	cpt db 0
-
 section .text
 	call _ft_strlen
 	ret
 
 _ft_strlen:
-	push rbp
-	mov rbp, rsp
-	sub rsp, 10
-	mov byte [rel cpt], 0 		;initialisation compteur
-	jmp boucle
-
-boucle:
-	cmp byte [rdi], 0 			;condition entree de boucle
-	je stop						;si en fin de chaine -> stop
-	inc rdi
-	inc byte [rel cpt]						;cpt++
-	jmp boucle
-
-stop:
-	mov rax, [rel cpt]
-	leave
+	mov al, 0			;set le registre a 0
+	mov rcx, 0			;set le cpt a 0
+	not rcx				;inverse les bits : rcx est a sa valeur max
+	cld					;parcoure les bits de gauche a droite
+	repne scasb			;compare rdi et al tant que non egal et decremente rcx
+	not rcx				; inverse rcx pour avoir la taille
+	dec rcx				;- /0
+	mov rax, rcx
 	ret
