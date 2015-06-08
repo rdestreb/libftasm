@@ -6,9 +6,6 @@
 
 section .rodata
 	zero db "(null)",10
-	.len equ $ - zero
-	chariot db 0x0a				;'\n'
-	.len equ $ - chariot
 
 section .text
 	call _ft_puts
@@ -18,7 +15,7 @@ _ft_puts:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 10
-	cmp rdi, 0					;si NULL
+	cmp rdi, 0
 	je putnull
 	push rdi
 	call _ft_strlen				;recupere taille de str
@@ -31,8 +28,8 @@ _ft_puts:
 	jmp back
 
 back:
-	lea rsi, [rel chariot]
-	mov rdx, chariot.len
+	lea rsi, [rel zero + 6] 	;hack degueulasse pour \n
+	mov rdx, 1
 	mov rax, MACSYSCALL(WRITE)
 	syscall
 	mov rax, 10
@@ -41,10 +38,8 @@ back:
 
 putnull:
 	lea rsi, [rel zero]
-	mov rdi, 1
-	mov rdx, zero.len
+	mov rdx, 7
 	mov rax, MACSYSCALL(WRITE)
 	syscall
-	mov rax, 10
 	leave
 	ret
