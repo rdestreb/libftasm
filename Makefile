@@ -6,7 +6,7 @@
 #    By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/05/29 17:57:44 by rdestreb          #+#    #+#              #
-#    Updated: 2015/06/08 16:42:45 by rdestreb         ###   ########.fr        #
+#    Updated: 2015/06/09 17:21:57 by rdestreb         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -45,7 +45,8 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) macho64 -o $@ $<
 
 test : $(OBJ)
-	clang -Wall -Wextra -Werror -g -L. -lfts  main_strdup.c -o test
+	clang -Wall -Wextra -Werror -L. -lfts  main_test.c -o test
+	clang -Wall -Wextra -Werror -L. -lfts  main_cat.c -o cat
 
 clean:
 	-@$(RM) $(OBJ)

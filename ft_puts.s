@@ -25,6 +25,7 @@ _ft_puts:
 	mov rdi, 1					;STDOUT
 	mov rax, MACSYSCALL(WRITE)
 	syscall
+	jc error					;si erreur de write
 	jmp back
 
 back:
@@ -32,6 +33,7 @@ back:
 	mov rdx, 1
 	mov rax, MACSYSCALL(WRITE)
 	syscall
+	jc error
 	mov rax, 10
 	leave
 	ret
@@ -41,5 +43,11 @@ putnull:
 	mov rdx, 7
 	mov rax, MACSYSCALL(WRITE)
 	syscall
+	jc error
+	leave
+	ret
+
+error:
+	mov rax, -1
 	leave
 	ret
