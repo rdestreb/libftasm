@@ -1,7 +1,3 @@
-%define MACSYSCALL(nb) 0x2000000 | nb
-%define STDOUT 1
-
-
 	global _ft_isalpha
 
 section .text
