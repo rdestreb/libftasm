@@ -14,18 +14,20 @@ section .text
 	ret
 
 _ft_cat:
-	push rdi					;fd
+	mov rax, MACSYSCALL(READ)
+	push rdi					;sauve fd
 	lea rsi, [rel buffer]
 	mov rdx, buffer.size		;buffer size
-	mov rax, MACSYSCALL(READ)
 	syscall
+	jc stop						;si erreur de syscall -> end
 	cmp rax, 0
 	jle stop
 	mov rdi, 1					;STDOUT pour write
 	mov rdx, rax				;ecrit contenu du buffer
 	mov rax, MACSYSCALL(WRITE)
 	syscall
-	pop rdi
+	jc stop
+	pop rdi						;reprend fd
 	jmp _ft_cat
 
 stop:

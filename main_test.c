@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/09 15:34:56 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/06/09 16:32:23 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/06/09 17:50:41 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ int	main()
 	getchar();
 	test_tolower();
 	getchar();
-	test_strlen();
+	test_puts();
 	getchar();
-	test_memcpy();
+	test_strlen();
 	getchar();
 	test_memset();
 	getchar();
-	test_puts();
+	test_memcpy();
 	getchar();
 	test_strdup();
 	return (0);
